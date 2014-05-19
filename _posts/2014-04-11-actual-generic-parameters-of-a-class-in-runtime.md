@@ -6,7 +6,7 @@ author: Tadeas Kriz
 
 Yesterday I was working on dynamic mapping of marshallers to their marshalled type. The way I've done it was having an interface `Marshaller` with generic parameter `<T>`. Then I'm using **Reflections** to get all classes that implements this interface. Then I need to get the actual type ot `<T>`, which is a problem if there is for example an abstract class, that is the base for all marshallers. So if you have the following setup, it's not as easy as just calling `ParameterizedType#getActualTypeArguments()".
 
-```java,1
+```java
 interface Marshaller<T> { 
 	... 
 }
@@ -22,7 +22,7 @@ class BooleanMarshaller extends AbstractMarshaller<Boolean> {
 
 So I have written the following method, that resolves actual types of all generic parameters of a given class.
 
-```java,1
+```java
 public Map<TypeVariable, Type> params(Class<?> targetClass, Class<?> cls, ParameterizedType type) {
     TypeVariable[] parameters = cls.getTypeParameters();
     Type[] actualParameters;
@@ -69,9 +69,11 @@ public Map<TypeVariable, Type> params(Class<?> targetClass, Class<?> cls, Parame
 ```
 
 And you'd use it like so:
+
 ```java
 Map<TypeVariable, Type> params = genericParameters(Marshaller2.class, BooleanMarshaller.class, null);
 ```
+
 And the `params` map would have exactly one entry, `(TypeVariable) "T" => (Class) Boolean`.
 
 I wrote this because I was unable to find the solution anywhere, so hopefully this will help someone in the future.
