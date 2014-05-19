@@ -1,0 +1,41 @@
+---
+title: My posts and thoughts
+layout: default
+---
+
+{% for post in paginator.posts %}
+	<div class="articleBox">
+		<a href="{{ post.url }}" title="{{ post.title }}" class="headline"><h3>{{ post.title }}</h3></a>
+		{% if post.image %}
+			<img src="{{ post.image }}">
+		{% endif %}
+		<div class="decriptionBox">
+			<div class="inlineBox">
+				<a href="https://plus.google.com/u/0/+Tade%C3%A1%C5%A1K%C5%99%C3%AD%C5%BE/posts" class="authorName">{{ post.author }}</a>
+				<span class="date">{{ post.date | date: "%d. %m. %Y" }}</span>
+			</div>
+			<p class="descriptionText">
+				{{ post.excerpt }}
+			</p>
+		</div>
+	</div>
+{% endfor %}
+{% if paginator.total_pages > 1 %}
+	<div id="loadMoreButton">
+	{% if paginator.previous_page %}
+		{% if paginator.previous_page == 1 %}
+			<a href="/">next page</a>
+		{% else %}
+			<a href="/page{{ paginator.previous_page }}">next page</a>
+		{% endif %}
+	{% endif %}
+	{% if paginator.next_page %}
+		<a href="/page{{ paginator.next_page }}">previous page</a>
+	{% endif %}
+	</div>
+{% endif %}
+
+{% assign size = site.posts | size %}
+{% if size == 0 %}
+		<p>Looks like you have some writing to do!</p>
+{% endif %}

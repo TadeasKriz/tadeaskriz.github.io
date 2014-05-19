@@ -1,0 +1,10 @@
+name: "TadeasKriz.com"
+
+description: ""
+
+url: "http://localhost:4000"
+
+paginate: 8
+
+markdown: rdiscount
+permalink: pretty
