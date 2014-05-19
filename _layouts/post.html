@@ -24,10 +24,10 @@
 		</div>
 	</div>
 	<div id="about">
-		<div id="portrait"></div>
+		<div id="portrait" style="background-image: url({% include images.html param=page.author %})"></div>
 		<div id="aboutMeTexts">
 			<h4>{{ page.author }}</h4>
-
+			<p>{% include bio.html param=page.author %}</p>
 		</div>
 	</div>	
 </footer>

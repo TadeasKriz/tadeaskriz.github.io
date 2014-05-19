@@ -1,0 +1,62 @@
+---
+title: Search
+layout: default
+---
+<script>
+	function $_GET(q,s) {
+		s = (s) ? s : window.location.search;
+		var re = new RegExp('&amp;'+q+'=([^&amp;]*)','i');
+		return (s=s.replace(/^\?/,'&amp;').match(re)) ?s=s[1] :s='';
+	}
+	var term = $_GET("term");
+	term = term.toLowerCase();
+</script>
+<h1 class="wrap" id="term_title"></h1>
+
+<script>
+	$("#term_title").html("You searched for &ldquo;" + term + "&rdquo;.");
+	$("#term").val(term);
+	var data = Array();
+</script>
+{% for post in site.posts %}
+<div id="load_data">
+	<div>{{ post.title }}</div>
+	<div>{{ post.date | date: "%d. %m. %Y" }}</div>
+	<div>{{ post.author }}</div>
+	<div>{{ post.excerpt }}</div>
+	<div>{{ post.url }}</div>
+	<div>{% include gplus.html param=post.author %}</div>
+</div>
+<script>
+	var divs = $("#load_data").children();
+	var array = Array();
+	array.push($(divs[0]).html().toLowerCase());
+	array.push($(divs[0]).html());
+	array.push($(divs[1]).html());
+	array.push($(divs[2]).html());
+	array.push($(divs[3]).html());
+	array.push($(divs[4]).html());
+	array.push($(divs[5]).html());
+	data.push(array);
+	$("#load_data").remove();
+</script>
+{% endfor %}
+<script>
+	for (var i = 0; i < data.length; i++) {
+		window.alert(data[i][3]);
+		var array = data[i];
+		if (array[0].indexOf(term) > -1) {
+			document.getElementById("container").innerHTML = document.getElementById("container").innerHTML + 
+			'<div class="articleBox">' + 
+				'<a href="' + array[5] + '" title="' + array[1] + '" class="headline"><h3>' + array[1] + '</h3></a>' + 
+				'<div class="decriptionBox">' + 
+					'<div class="inlineBox">' +
+						'<a href="' + array[6] + '" class="authorName">' + array[3] + '</a>' +
+						'<span class="date">' + array[2] + '</span>' +
+					'</div>' + 
+					'<p class="descriptionText">' + array[4] + '</p>' +
+				'</div>' +
+			'</div>';
+		}
+	}
+</script>
