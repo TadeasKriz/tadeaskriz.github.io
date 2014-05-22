@@ -1,7 +1,7 @@
 ---
 title: Actual generic parameters of a Class<?> in runtime
 layout: post
-author: Tadeas Kriz
+author: TadeasKriz
 ---
 
 Yesterday I was working on dynamic mapping of marshallers to their marshalled type. The way I've done it was having an interface `Marshaller` with generic parameter `<T>`. Then I'm using **Reflections** to get all classes that implements this interface. Then I need to get the actual type ot `<T>`, which is a problem if there is for example an abstract class, that is the base for all marshallers. So if you have the following setup, it's not as easy as just calling `ParameterizedType#getActualTypeArguments()".

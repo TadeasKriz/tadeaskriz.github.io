@@ -1,10 +1,15 @@
-name: "TadeasKriz.com"
-
+name: "Prototype Factory"
 description: ""
-
-url: "http://tadeaskriz.github.io"
-
 paginate: 8
-
-markdown: rdiscount
 permalink: pretty
+markdown: kramdown
+kramdown:
+  input: GFM
+
+defaults:
+  -
+    scope:
+      path: ""
+    values:
+      layout: "post"
+      author: "TadeasKriz"

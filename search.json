@@ -1,0 +1,16 @@
+---
+---
+{
+	"entries": [
+		{% for post in site.posts %}
+			{% if forloop.first == false %},{% endif %}
+			{
+				"title": {{ post.title | jsonify }},
+				"url": {{ post.url | jsonify }},
+				"date": {{ post.date | jsonify }},
+				"categories": {{ post.categories | jsonify }},
+				"body": {{ post.content | strip_html | jsonify }}
+			}
+		{% endfor %}
+	]
+}

@@ -222,12 +222,20 @@ pre {
 	width: 748px;
 }
 
-code {
+pre code {
 	background-image: url(../images/codeBg.png) !important;
 	padding: 0 0 0 12px !important;
 	font-family: 'Source Code Pro';
 	line-height: 18px;
 	font-size: 12px;
+}
+
+p code {
+	background-color: rgb(220,220,220);
+	padding: 0 4px;
+	border-radius: 3px;
+	border: 1px solid #C6C6C6;
+	font-weight:600;
 }
 
 #about {
@@ -367,3 +375,39 @@ article {
 footer {
 	clear: both;
 }
+
+#avatar_wrapper {
+    width:128px;
+    height:128px;
+    position:relative;
+    border-radius:64px;
+    overflow:hidden;
+    float: left;
+}
+
+#avatar_blur {
+    width:100%;
+    height:100%;
+    -webkit-filter: blur(12px);
+    z-index:1;
+}
+
+#avatar_crisp_wrapper {
+    width:112px;
+    height:112px;
+    position:absolute;
+    margin:8px;
+    border-radius:56px;
+    z-index:2;
+    background-size:128px;
+    background-position:-8px -8px;
+}
+
+section a {
+	color: #309d80;
+}
+
+#about a {
+	color: #309d80;
+}
+

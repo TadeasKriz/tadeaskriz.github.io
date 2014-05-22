@@ -17,12 +17,9 @@
 
 		<script>var base = '';</script>
 		<script src="/js/jquery.js"></script>
-		<script src="/js/highlight.pack.js"></script>
-		<script>hljs.initHighlightingOnLoad();</script>
 		<link href='http://fonts.googleapis.com/css?family=Source+Code+Pro:400,600' rel='stylesheet' type='text/css'>
 		
 	    <meta name="viewport" content="width=device-width">
-	    <meta name="generator" content="Anchor CMS">
 
 	    <meta property="og:title" content="{{ site.name }}">
 	    <meta property="og:type" content="website">
@@ -61,3 +58,11 @@
 					<input type="text" id="term" name="term">
 				</form>
 			</header>
+
+			<script id="search-results-template" type="text/mustache">
+				{{#entries}}
+					<article>
+						
+					</article>
+				{{/entries}}
+			</script>
