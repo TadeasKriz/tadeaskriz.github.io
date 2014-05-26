@@ -1,0 +1,41 @@
+---
+title: My posts and thoughts
+layout: default
+---
+
+{% for post in paginator.posts %}
+	<div class="articleBox">
+		<a href="{{ post.url }}" title="{{ post.title }}" class="headline"><h3>{{ post.title }}</h3></a>
+		{% if post.image %}
+			<img src="{{ post.image }}">
+		{% endif %}
+		<div class="decriptionBox">
+			<div class="inlineBox">
+				<a href="{% include gplus.html param=post.author %}" class="authorName">{{ site.data.authors[page.author].name }}</a>
+				<span class="date">{{ post.date | date: "%B %-d, %Y" }}</span>
+			</div>
+			<p class="descriptionText">
+				{{ post.excerpt }}
+			</p>
+		</div>
+	</div>
+{% endfor %}
+{% if paginator.total_pages > 1 %}
+	<div id="loadMoreButton">
+	{% if paginator.previous_page %}
+		{% if paginator.previous_page == 1 %}
+			<a href="/">next page</a>
+		{% else %}
+			<a href="/page{{ paginator.previous_page }}">next page</a>
+		{% endif %}
+	{% endif %}
+	{% if paginator.next_page %}
+		<a href="/page{{ paginator.next_page }}">previous page</a>
+	{% endif %}
+	</div>
+{% endif %}
+
+{% assign size = site.posts | size %}
+{% if size == 0 %}
+		<p>Looks like you have some writing to do!</p>
+{% endif %}

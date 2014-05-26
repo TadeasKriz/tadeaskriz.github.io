@@ -1,0 +1,15 @@
+name: "Prototype Factory"
+description: ""
+paginate: 8
+permalink: pretty
+markdown: kramdown
+kramdown:
+  input: GFM
+
+defaults:
+  -
+    scope:
+      path: ""
+    values:
+      layout: "post"
+      author: "TadeasKriz"
