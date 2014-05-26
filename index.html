@@ -11,7 +11,7 @@ layout: default
 		{% endif %}
 		<div class="decriptionBox">
 			<div class="inlineBox">
-				<a href="{% include gplus.html param=post.author %}" class="authorName">{{ site.data.authors[page.author].name }}</a>
+				<a href="{{ site.data.authors[post.author].url }}" class="authorName">{{ site.data.authors[post.author].name }}</a>
 				<span class="date">{{ post.date | date: "%B %-d, %Y" }}</span>
 			</div>
 			<p class="descriptionText">

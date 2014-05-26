@@ -1,46 +1,68 @@
 <!doctype html>
 <html lang="en">
-{% include html-header.html %}
+	{% include html-header.html %}
 	<body>
-		<article id="article-{{ page.id }}">
-			<h2>{{ page.title }}</h2>
-			<div class="breadcrumbs">
-				<span id="arrow"></span>
-				<a href="{{ site.url }}">other articles</a>
-				<span class="date">{{ page.date | date: "%d. %m. %Y" }}</span>
-			</div>
-			<section>{{ content }}</section>
-		</article>
+		<script>
+			window.fbAsyncInit = function() {
+				FB.init({
+					appId: '487020328073741',
+					xfbml: true,
+					version: 'v2.0'
+				});
+			};
 
-		<footer>
-			<div id="under_article">
-				<div id="social">
-					<script id='fb251t1'>(function(i){var f,s=document.getElementById(i);f=document.createElement('iframe');f.src='//api.flattr.com/button/view/?uid=TadeasKriz&url='+encodeURIComponent(document.URL)+'&title={{ page.title }}';f.title='Flattr';f.height=62;f.width=55;f.style.borderWidth=0;s.parentNode.insertBefore(f,s);})('fb251t1');</script>
-					<div class="fb-like" data-href="{{ site.url }}{{ page.url }}" data-layout="box_count" data-action="like" data-show-faces="false" data-share="false"></div>
-					<div class="g-plusone" data-size="tall" data-href="{{ site.url }}{{ page.url }}"></div>
-					<a href="https://twitter.com/share" class="twitter-share-button" data-related="TadeasKriz" data-count="vertical">Tweet</a>
-					<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+			(function(d, s, id){
+				var js, fjs = d.getElementsByTagName(s)[0];
+				if (d.getElementById(id)) {return;}
+				js = d.createElement(s); js.id = id;
+				js.src = "//connect.facebook.net/en_US/sdk.js";
+				fjs.parentNode.insertBefore(js, fjs);
+			} (document, 'script', 'facebook-jssdk'));
+	    </script>
+		<div id="container">
+			{% include page-header.html %}
+
+			<article id="article-{{ page.id }}">
+				<h2>{{ page.title }}</h2>
+				<div class="breadcrumbs">
+					<span id="arrow"></span>
+					<a href="{{ site.url }}">other articles</a>
+					<span class="date">{{ page.date | date: "%B %-d, %Y" }}</span>
 				</div>
-			<div id="tags"></div>
-	</div>
-	<div id="about">
-		<div id="avatar_wrapper">
-		    <div id="avatar_crisp_wrapper" style="background-image:url({{ site.data.authors[page.author].avatar }})"></div>
-		    <div id="because_CSS">
-		        <img src="{{ site.data.authors[page.author].avatar }}" id="avatar_blur" />
-		    </div>
+				<section>{{ content }}</section>
+			</article>
+
+			<footer>
+				<div id="under_article">
+					<div id="social">
+						<script id='fb251t1'>(function(i){var f,s=document.getElementById(i);f=document.createElement('iframe');f.src='//api.flattr.com/button/view/?uid=TadeasKriz&url='+encodeURIComponent(document.URL)+'&title={{ page.title }}';f.title='Flattr';f.height=62;f.width=55;f.style.borderWidth=0;s.parentNode.insertBefore(f,s);})('fb251t1');</script>
+						<div class="fb-like" data-href="{{ site.url }}{{ page.url }}" data-layout="box_count" data-action="like" data-show-faces="false" data-share="false"></div>
+						<div class="g-plusone" data-size="tall" data-href="{{ site.url }}{{ page.url }}"></div>
+						<a href="https://twitter.com/share" class="twitter-share-button" data-related="TadeasKriz" data-count="vertical">Tweet</a>
+						<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+					</div>
+					<div id="tags"></div>
+				</div>
+				<div id="about">
+					<div id="avatar_wrapper">
+			    		<div id="avatar_crisp_wrapper" style="background-image:url({{ site.data.authors[page.author].avatar }})"></div>
+		    			<div id="because_CSS">
+		        			<img src="{{ site.data.authors[page.author].avatar }}" id="avatar_blur" />
+		    			</div>
+					</div>
+					<div id="aboutMeTexts">
+						<h4>{{ site.data.authors[page.author].name }}</h4>
+						<p>{{ site.data.authors[page.author].bio }}</p>
+					</div>
+				</div>	
+			</footer>
 		</div>
-		<div id="aboutMeTexts">
-			<h4>{{ site.data.authors[page.author].name }}</h4>
-			<p>{{ site.data.authors[page.author].bio }}</p>
-		</div>
-	</div>	
-</footer>
-<script type="text/javascript">
-  (function() {
-	var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
-	po.src = 'https://apis.google.com/js/platform.js';
-	var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
-  })();
-</script>
-{% include footer.html %}
+		<script type="text/javascript">
+			(function() {
+				var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+				po.src = 'https://apis.google.com/js/platform.js';
+				var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+			})();
+		</script>
+	</body>
+</html>

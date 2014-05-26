@@ -1,5 +1,3 @@
-<!doctype html>
-<html lang="en">
 	<head>
 		<meta charset="utf-8">
 		<title>{{ page.title }} - {{ site.name }}</title>
@@ -41,28 +39,3 @@
 
 		</script>
 	</head>
-	
-	<body>
-		<div id="fb-root"></div>
-		<script>(function(d, s, id) {
-		  var js, fjs = d.getElementsByTagName(s)[0];
-		  if (d.getElementById(id)) return;
-		  js = d.createElement(s); js.id = id;
-		  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=487020328073741";
-		  fjs.parentNode.insertBefore(js, fjs);
-		}(document, 'script', 'facebook-jssdk'));</script>
-		<div id="container">
-			<header>
-				<a id="logo" href="{{ site.url }}"><h1>{{ site.name }}</h1></a>
-				<form id="search" action="/search" method="get">
-					<input type="text" id="term" name="term">
-				</form>
-			</header>
-
-			<script id="search-results-template" type="text/mustache">
-				{{#entries}}
-					<article>
-						
-					</article>
-				{{/entries}}
-			</script>

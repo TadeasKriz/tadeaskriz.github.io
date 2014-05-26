@@ -1,6 +1,5 @@
 ---
 title: Lorem Ipsum Dolor Sit Amet
-layout: post
 author: fdolnik
 image: http://tadeaskriz.com/content/dsc_0011_edit.jpg
 ---

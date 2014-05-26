@@ -1,0 +1,14 @@
+<header>
+    <a id="logo" href="{{ site.url }}"><h1>{{ site.name }}</h1></a>
+    <form id="search" action="/search" method="get">
+        <input type="text" id="term" name="term">
+    </form>
+</header>
+
+<script id="search-results-template" type="text/mustache">
+    {{#entries}}
+        <article>
+            
+        </article>
+    {{/entries}}
+</script>

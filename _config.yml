@@ -1,10 +1,12 @@
 name: "Prototype Factory"
+url: http://tadeaskriz.com
 description: ""
 paginate: 8
 permalink: pretty
 markdown: kramdown
 kramdown:
   input: GFM
+exclude: ['Gemfile', 'Gemfile.lock', 'Rakefile']
 
 defaults:
   -
