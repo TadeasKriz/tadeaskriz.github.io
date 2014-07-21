@@ -3,7 +3,7 @@ title: Music Stopper release
 image: content/music-stopper-released/title_image.jpg
 ---
 
-Another simple yet useful application from [Brightify][brightify] is on the Play Store. It does what the name says, stops your music after a specified amount of time. This is mainly useful when you like to be taken in by your favorite songs, but you don't want the music to play longer than needed.
+Another simple yet useful application from [Brightify][brightify] is on the Play Store. It does what the name says— it stops your music after a specified amount of time. This is especially useful when you like to lose yourself in your favorite songs, but at the same time you don't want to play the music any longer than needed.
 
 ### Credits
 * Code: [Filip Dolník][filip]
