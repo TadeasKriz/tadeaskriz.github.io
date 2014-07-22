@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="en">
+		<head>
+		<meta charset="utf-8">
+		<title>The first usable version of Torch - Prototype Factory</title>
+
+		<meta name="description" content="">
+		<link href='http://fonts.googleapis.com/css?family=Lato:300,400,700' rel='stylesheet' type='text/css'>
+		<link rel="stylesheet" href="/css/styles.css">
+		<link rel="stylesheet" href="/styles/default.css">
+
+		<link rel="shortcut icon" href="/img/favicon.png">
+
+		<!--[if lt IE 9]>
+			<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+		<![endif]-->
+
+		<script>var base = '';</script>
+		<script src="/js/jquery.js"></script>
+		<link href='http://fonts.googleapis.com/css?family=Source+Code+Pro:400,600' rel='stylesheet' type='text/css'>
+		
+	    <meta name="viewport" content="width=device-width">
+
+	    <meta property="og:title" content="Prototype Factory">
+	    <meta property="og:type" content="website">
+	    <meta property="og:url" content="http://www.tadeaskriz.com/2013/10/14/the-first-usable-version-of-torch/">
+	    <meta property="og:image" content="/img/og_image.gif">
+	    <meta property="og:site_name" content="Prototype Factory">
+	    <meta property="og:description" content="">
+		
+		<meta name="google-site-verification" content="fPCfLO1z_Y-FD6z3B6aqligcYJfE8QNl9UZV2-LLQPA" />
+		<script>
+		  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+		  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+		  ga('create', 'UA-11323784-13', 'tadeaskriz.com');
+		  ga('require', 'linkid', 'linkid.js');
+		  ga('send', 'pageview');
+
+		</script>
+	</head>
+	<body>
+		<script>
+			window.fbAsyncInit = function() {
+				FB.init({
+					appId: '487020328073741',
+					xfbml: true,
+					version: 'v2.0'
+				});
+			};
+
+			(function(d, s, id){
+				var js, fjs = d.getElementsByTagName(s)[0];
+				if (d.getElementById(id)) {return;}
+				js = d.createElement(s); js.id = id;
+				js.src = "//connect.facebook.net/en_US/sdk.js";
+				fjs.parentNode.insertBefore(js, fjs);
+			} (document, 'script', 'facebook-jssdk'));
+	    </script>
+		<div id="container">
+			<header>
+    <a id="logo" href="http://www.tadeaskriz.com"><h1>Prototype Factory</h1></a>
+    <form id="search" action="/search" method="get">
+        <input type="text" id="term" name="term">
+    </form>
+</header>
+
+<script id="search-results-template" type="text/mustache">
+    
+        <article>
+            
+        </article>
+    
+</script>
+
+			<article id="article-/2013/10/14/the-first-usable-version-of-torch">
+				<h2>The first usable version of Torch</h2>
+				<div class="breadcrumbs">
+					<span id="arrow"></span>
+					<a href="http://www.tadeaskriz.com">other articles</a>
+					<span class="date">October 14, 2013</span>
+				</div>
+				<section><p>This weekend was hectic, but I’ve finally managed to get <a href="https://github.com/brightify/torch/tree/develop"><strong>Torch</strong></a> into usable form. It doesn’t have a way to delete entities from database and there is no documentation yet. Also there are just a few tests written, but more will come in the upcoming two weeks.</p>
+
+<h2 id="current-status">Current status</h2>
+
+<p>Loader and Saver API should be fully usable (except async operations). You can save any entity and also load them back. Loader API allows you to filter, order and limit results. The API is completely fluent and immutable, guiding you through the query creation. Each step implements <strong>Iterable</strong> interface, so you can use it in <code>foreach</code> loops. That way the data will get loaded when they’re needed and not all at once. Also you can call <code>list()</code> method, to get all the results in one <code>List</code>.</p>
+
+<h2 id="whats-next">What’s next</h2>
+
+<p>I need to implement the async API. It’ll work the way that each callback is run on <strong>UI thread</strong>, so you don’t have to worry about direct modification of your UI. Then I’ll implement the Deleter API, so there’s an easy way to delete entities. Last but not least, tests. I should write a lot of tests to cover all the APIs to ensure proper  behavior.</p>
+
+<h2 id="change-of-alpha-release-date">Change of alpha release date</h2>
+
+<p>More projects came into scope, which has higher priority than releasing alpha version of <a href="https://github.com/brightify/torch/tree/develop"><strong>Torch</strong></a>. Because of that, I have to shift the alpha release date. If everything goes well, the alpha should be out at the end of November.</p>
+
+<h2 id="where-to-get-latest-version">Where to get latest version</h2>
+
+<p>Latest version can be found <a href="https://github.com/brightify/torch/tree/develop">here</a>. Until further notice, this is always the bleeding edge and it’s not considered stable!</p>
+
+</section>
+			</article>
+
+			<footer>
+				<div id="under_article">
+					<div id="social">
+						<script id='fb251t1'>(function(i){var f,s=document.getElementById(i);f=document.createElement('iframe');f.src='//api.flattr.com/button/view/?uid=TadeasKriz&url='+encodeURIComponent(document.URL)+'&title=The first usable version of Torch';f.title='Flattr';f.height=62;f.width=55;f.style.borderWidth=0;s.parentNode.insertBefore(f,s);})('fb251t1');</script>
+						<div class="fb-like" data-href="http://www.tadeaskriz.com/2013/10/14/the-first-usable-version-of-torch/" data-layout="box_count" data-action="like" data-show-faces="false" data-share="false"></div>
+						<div class="g-plusone" data-size="tall" data-href="http://www.tadeaskriz.com/2013/10/14/the-first-usable-version-of-torch/"></div>
+						<a href="https://twitter.com/share" class="twitter-share-button" data-related="TadeasKriz" data-count="vertical">Tweet</a>
+						<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+					</div>
+					<div id="tags"></div>
+				</div>
+				<div id="about">
+					<div id="avatar_wrapper">
+			    		<div id="avatar_crisp_wrapper" style="background-image:url(https://lh5.googleusercontent.com/-Xp5jqzj37eU/UzCuMGYCEmI/AAAAAAAAMF0/uF4e1pd7cl8/w783-h786-no/10003653_840041109355960_344531941_o.jpg)"></div>
+		    			<div id="because_CSS">
+		        			<img src="https://lh5.googleusercontent.com/-Xp5jqzj37eU/UzCuMGYCEmI/AAAAAAAAMF0/uF4e1pd7cl8/w783-h786-no/10003653_840041109355960_344531941_o.jpg" id="avatar_blur" />
+		    			</div>
+					</div>
+					<div id="aboutMeTexts">
+						<h4>Tadeas Kriz</h4>
+						<p>Is passionate developer who just recently began to invest his time into opensource projects, when he joined Red Hat in June 2013. He also created an opensource library <a href="http://github.com/brightify/torch">Torch</a>.
+</p>
+					</div>
+				</div>
+				<script src="https://apis.google.com/js/plusone.js"></script>
+				<div class="g-comments" data-href="http://www.tadeaskriz.com/2013/10/14/the-first-usable-version-of-torch/" data-width="844" data-first_party_property="BLOGGER" data-view_type="FILTERED_POSTMOD"></div>
+			</footer>
+		</div>
+		<script type="text/javascript">
+			(function() {
+				var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+				po.src = 'https://apis.google.com/js/platform.js';
+				var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+			})();
+		</script>
+	</body>
+</html>

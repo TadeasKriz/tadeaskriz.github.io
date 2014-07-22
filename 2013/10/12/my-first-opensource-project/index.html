@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="en">
+		<head>
+		<meta charset="utf-8">
+		<title>My first opensource project - Prototype Factory</title>
+
+		<meta name="description" content="">
+		<link href='http://fonts.googleapis.com/css?family=Lato:300,400,700' rel='stylesheet' type='text/css'>
+		<link rel="stylesheet" href="/css/styles.css">
+		<link rel="stylesheet" href="/styles/default.css">
+
+		<link rel="shortcut icon" href="/img/favicon.png">
+
+		<!--[if lt IE 9]>
+			<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+		<![endif]-->
+
+		<script>var base = '';</script>
+		<script src="/js/jquery.js"></script>
+		<link href='http://fonts.googleapis.com/css?family=Source+Code+Pro:400,600' rel='stylesheet' type='text/css'>
+		
+	    <meta name="viewport" content="width=device-width">
+
+	    <meta property="og:title" content="Prototype Factory">
+	    <meta property="og:type" content="website">
+	    <meta property="og:url" content="http://www.tadeaskriz.com/2013/10/12/my-first-opensource-project/">
+	    <meta property="og:image" content="/img/og_image.gif">
+	    <meta property="og:site_name" content="Prototype Factory">
+	    <meta property="og:description" content="">
+		
+		<meta name="google-site-verification" content="fPCfLO1z_Y-FD6z3B6aqligcYJfE8QNl9UZV2-LLQPA" />
+		<script>
+		  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+		  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+		  ga('create', 'UA-11323784-13', 'tadeaskriz.com');
+		  ga('require', 'linkid', 'linkid.js');
+		  ga('send', 'pageview');
+
+		</script>
+	</head>
+	<body>
+		<script>
+			window.fbAsyncInit = function() {
+				FB.init({
+					appId: '487020328073741',
+					xfbml: true,
+					version: 'v2.0'
+				});
+			};
+
+			(function(d, s, id){
+				var js, fjs = d.getElementsByTagName(s)[0];
+				if (d.getElementById(id)) {return;}
+				js = d.createElement(s); js.id = id;
+				js.src = "//connect.facebook.net/en_US/sdk.js";
+				fjs.parentNode.insertBefore(js, fjs);
+			} (document, 'script', 'facebook-jssdk'));
+	    </script>
+		<div id="container">
+			<header>
+    <a id="logo" href="http://www.tadeaskriz.com"><h1>Prototype Factory</h1></a>
+    <form id="search" action="/search" method="get">
+        <input type="text" id="term" name="term">
+    </form>
+</header>
+
+<script id="search-results-template" type="text/mustache">
+    
+        <article>
+            
+        </article>
+    
+</script>
+
+			<article id="article-/2013/10/12/my-first-opensource-project">
+				<h2>My first opensource project</h2>
+				<div class="breadcrumbs">
+					<span id="arrow"></span>
+					<a href="http://www.tadeaskriz.com">other articles</a>
+					<span class="date">October 12, 2013</span>
+				</div>
+				<section><p>I’m currently working on my first opensource project, with codename <a href="http://github.com/brightify/torch"><strong>torch</strong></a>. It’s an Android ORM framework, which is built to have similar API to <a href="https://code.google.com/p/objectify-appengine/"><strong>objectify</strong></a>. I’ve never worked on anything opensourced until I got a job in Red Hat, but I think I should change that radically and contribute to the community. That’s why there will be more opensource libraries from <a href="http://brigtify.org">Brightify</a>, so keep tuned for more.</p>
+
+<h3 id="whats-an-orm">What’s an ORM</h3>
+
+<p>ORM means <a href="http://en.wikipedia.org/wiki/Object-relational_mapping">Object-relational mapping</a> and it’s a great way to easily persist data in your application. You don’t need to write your own code to handle database connection, to create tables and to load/store the data. It sounds great right? Well, there is one drawback and that’s performance. I didn’t measured the performance of <strong>torch</strong> yet, but from what I know about reflection, it might be an order of magnitude. However that mainly applies to performance sensitive applications and thus it depends on the scenario. If you’re writing application, in which handling the database would increase the development time a lot, you should try using an ORM framework. Also there is one big advantage and that’s stability. When you write your own database handling code, it might contain bugs, which might be easily overlooked. Don’t get me wrong, I’m not saying that ORM frameworks are completely bug-free, but it’s less likely if you’ll pick a stable release. </p>
+
+<h3 id="another-orm-why">Another ORM? Why?</h3>
+
+<p>I’ve tried many Android ORMs, but every single one has something I didn’t like. Some had the requirement to extend some abstract classes, some seemed too heavyweight for what I needed and none of them was quite like <strong>objectify</strong>, which I’ve used on Google AppEngine and totally fell in love with. So I’ve decided to write my own ORM which would have similar API as <strong>objectify</strong> and that’s how <strong>torch</strong> project was born.</p>
+
+<h3 id="current-status">Current status</h3>
+
+<p>Right now, there are many features missing and it’s definitely not usable yet. But I’m working hard to release first alpha preview very soon. By soon, I mean the end of this month (October 2013). The first alpha preview still won’t be ready for production, that’s for sure. And it won’t become a beta until I’ll use it in at least two project myself. After I’ll test it in real environment, I’ll be finally able to say that the API won’t change and make it a beta. Then again, it’ll need more testing, possibly from community. There won’t be a stable release until I feel like it’s ready.</p>
+
+</section>
+			</article>
+
+			<footer>
+				<div id="under_article">
+					<div id="social">
+						<script id='fb251t1'>(function(i){var f,s=document.getElementById(i);f=document.createElement('iframe');f.src='//api.flattr.com/button/view/?uid=TadeasKriz&url='+encodeURIComponent(document.URL)+'&title=My first opensource project';f.title='Flattr';f.height=62;f.width=55;f.style.borderWidth=0;s.parentNode.insertBefore(f,s);})('fb251t1');</script>
+						<div class="fb-like" data-href="http://www.tadeaskriz.com/2013/10/12/my-first-opensource-project/" data-layout="box_count" data-action="like" data-show-faces="false" data-share="false"></div>
+						<div class="g-plusone" data-size="tall" data-href="http://www.tadeaskriz.com/2013/10/12/my-first-opensource-project/"></div>
+						<a href="https://twitter.com/share" class="twitter-share-button" data-related="TadeasKriz" data-count="vertical">Tweet</a>
+						<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+					</div>
+					<div id="tags"></div>
+				</div>
+				<div id="about">
+					<div id="avatar_wrapper">
+			    		<div id="avatar_crisp_wrapper" style="background-image:url(https://lh5.googleusercontent.com/-Xp5jqzj37eU/UzCuMGYCEmI/AAAAAAAAMF0/uF4e1pd7cl8/w783-h786-no/10003653_840041109355960_344531941_o.jpg)"></div>
+		    			<div id="because_CSS">
+		        			<img src="https://lh5.googleusercontent.com/-Xp5jqzj37eU/UzCuMGYCEmI/AAAAAAAAMF0/uF4e1pd7cl8/w783-h786-no/10003653_840041109355960_344531941_o.jpg" id="avatar_blur" />
+		    			</div>
+					</div>
+					<div id="aboutMeTexts">
+						<h4>Tadeas Kriz</h4>
+						<p>Is passionate developer who just recently began to invest his time into opensource projects, when he joined Red Hat in June 2013. He also created an opensource library <a href="http://github.com/brightify/torch">Torch</a>.
+</p>
+					</div>
+				</div>
+				<script src="https://apis.google.com/js/plusone.js"></script>
+				<div class="g-comments" data-href="http://www.tadeaskriz.com/2013/10/12/my-first-opensource-project/" data-width="844" data-first_party_property="BLOGGER" data-view_type="FILTERED_POSTMOD"></div>
+			</footer>
+		</div>
+		<script type="text/javascript">
+			(function() {
+				var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+				po.src = 'https://apis.google.com/js/platform.js';
+				var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+			})();
+		</script>
+	</body>
+</html>

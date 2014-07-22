@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="en">
+		<head>
+		<meta charset="utf-8">
+		<title>The new Torch! - Prototype Factory</title>
+
+		<meta name="description" content="">
+		<link href='http://fonts.googleapis.com/css?family=Lato:300,400,700' rel='stylesheet' type='text/css'>
+		<link rel="stylesheet" href="/css/styles.css">
+		<link rel="stylesheet" href="/styles/default.css">
+
+		<link rel="shortcut icon" href="/img/favicon.png">
+
+		<!--[if lt IE 9]>
+			<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+		<![endif]-->
+
+		<script>var base = '';</script>
+		<script src="/js/jquery.js"></script>
+		<link href='http://fonts.googleapis.com/css?family=Source+Code+Pro:400,600' rel='stylesheet' type='text/css'>
+		
+	    <meta name="viewport" content="width=device-width">
+
+	    <meta property="og:title" content="Prototype Factory">
+	    <meta property="og:type" content="website">
+	    <meta property="og:url" content="http://www.tadeaskriz.com/2013/10/17/the-new-torch/">
+	    <meta property="og:image" content="/img/og_image.gif">
+	    <meta property="og:site_name" content="Prototype Factory">
+	    <meta property="og:description" content="">
+		
+		<meta name="google-site-verification" content="fPCfLO1z_Y-FD6z3B6aqligcYJfE8QNl9UZV2-LLQPA" />
+		<script>
+		  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+		  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+		  ga('create', 'UA-11323784-13', 'tadeaskriz.com');
+		  ga('require', 'linkid', 'linkid.js');
+		  ga('send', 'pageview');
+
+		</script>
+	</head>
+	<body>
+		<script>
+			window.fbAsyncInit = function() {
+				FB.init({
+					appId: '487020328073741',
+					xfbml: true,
+					version: 'v2.0'
+				});
+			};
+
+			(function(d, s, id){
+				var js, fjs = d.getElementsByTagName(s)[0];
+				if (d.getElementById(id)) {return;}
+				js = d.createElement(s); js.id = id;
+				js.src = "//connect.facebook.net/en_US/sdk.js";
+				fjs.parentNode.insertBefore(js, fjs);
+			} (document, 'script', 'facebook-jssdk'));
+	    </script>
+		<div id="container">
+			<header>
+    <a id="logo" href="http://www.tadeaskriz.com"><h1>Prototype Factory</h1></a>
+    <form id="search" action="/search" method="get">
+        <input type="text" id="term" name="term">
+    </form>
+</header>
+
+<script id="search-results-template" type="text/mustache">
+    
+        <article>
+            
+        </article>
+    
+</script>
+
+			<article id="article-/2013/10/17/the-new-torch">
+				<h2>The new Torch!</h2>
+				<div class="breadcrumbs">
+					<span id="arrow"></span>
+					<a href="http://www.tadeaskriz.com">other articles</a>
+					<span class="date">October 17, 2013</span>
+				</div>
+				<section><p>When I thought that <strong>Torch</strong> is almost ready for our internal projects to use, a new idea came from my coworker <a href="https://plus.google.com/u/0/112976143100224772101"><strong>Karel Piwko</strong></a>. Basically, right now, <strong>Torch</strong> was working with reflection to store and load entities. The problem with reflection is its performance overhead, causing that <strong>Torch</strong> was slower ten times than using just plain SQL commands and create the models yourself. But not anymore! I’ve started working on <strong>annotation processor</strong>, that will go through all your entities, and generate metadata, which will be static and thus significantly faster.</p>
+
+<h2 id="changes-to-the-api">Changes to the API</h2>
+
+<p>That’s what great about this, there <strong>won’t</strong> be any! It will behave completely the same, except it’ll be an order of magnitude faster! I’ve been able to design the <strong>annotation processor</strong>’s output that way it can be easily used by <strong>Torch</strong> with the current API.</p>
+
+<h2 id="support-by-ides-build-tools">Support by IDE’s, build tools</h2>
+
+<p>Anything that can supply <strong>javac</strong> an annotation processor parameter is supported. Right now I know it does work with <strong>Maven</strong> and <strong>IntelliJ IDEA</strong>.</p>
+
+</section>
+			</article>
+
+			<footer>
+				<div id="under_article">
+					<div id="social">
+						<script id='fb251t1'>(function(i){var f,s=document.getElementById(i);f=document.createElement('iframe');f.src='//api.flattr.com/button/view/?uid=TadeasKriz&url='+encodeURIComponent(document.URL)+'&title=The new Torch!';f.title='Flattr';f.height=62;f.width=55;f.style.borderWidth=0;s.parentNode.insertBefore(f,s);})('fb251t1');</script>
+						<div class="fb-like" data-href="http://www.tadeaskriz.com/2013/10/17/the-new-torch/" data-layout="box_count" data-action="like" data-show-faces="false" data-share="false"></div>
+						<div class="g-plusone" data-size="tall" data-href="http://www.tadeaskriz.com/2013/10/17/the-new-torch/"></div>
+						<a href="https://twitter.com/share" class="twitter-share-button" data-related="TadeasKriz" data-count="vertical">Tweet</a>
+						<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+					</div>
+					<div id="tags"></div>
+				</div>
+				<div id="about">
+					<div id="avatar_wrapper">
+			    		<div id="avatar_crisp_wrapper" style="background-image:url(https://lh5.googleusercontent.com/-Xp5jqzj37eU/UzCuMGYCEmI/AAAAAAAAMF0/uF4e1pd7cl8/w783-h786-no/10003653_840041109355960_344531941_o.jpg)"></div>
+		    			<div id="because_CSS">
+		        			<img src="https://lh5.googleusercontent.com/-Xp5jqzj37eU/UzCuMGYCEmI/AAAAAAAAMF0/uF4e1pd7cl8/w783-h786-no/10003653_840041109355960_344531941_o.jpg" id="avatar_blur" />
+		    			</div>
+					</div>
+					<div id="aboutMeTexts">
+						<h4>Tadeas Kriz</h4>
+						<p>Is passionate developer who just recently began to invest his time into opensource projects, when he joined Red Hat in June 2013. He also created an opensource library <a href="http://github.com/brightify/torch">Torch</a>.
+</p>
+					</div>
+				</div>
+				<script src="https://apis.google.com/js/plusone.js"></script>
+				<div class="g-comments" data-href="http://www.tadeaskriz.com/2013/10/17/the-new-torch/" data-width="844" data-first_party_property="BLOGGER" data-view_type="FILTERED_POSTMOD"></div>
+			</footer>
+		</div>
+		<script type="text/javascript">
+			(function() {
+				var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+				po.src = 'https://apis.google.com/js/platform.js';
+				var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+			})();
+		</script>
+	</body>
+</html>

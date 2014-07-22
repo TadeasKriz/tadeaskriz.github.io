@@ -1,0 +1,218 @@
+<!doctype html>
+<html lang="en">
+		<head>
+		<meta charset="utf-8">
+		<title> - Prototype Factory</title>
+
+		<meta name="description" content="">
+		<link href='http://fonts.googleapis.com/css?family=Lato:300,400,700' rel='stylesheet' type='text/css'>
+		<link rel="stylesheet" href="/css/styles.css">
+		<link rel="stylesheet" href="/styles/default.css">
+
+		<link rel="shortcut icon" href="/img/favicon.png">
+
+		<!--[if lt IE 9]>
+			<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+		<![endif]-->
+
+		<script>var base = '';</script>
+		<script src="/js/jquery.js"></script>
+		<link href='http://fonts.googleapis.com/css?family=Source+Code+Pro:400,600' rel='stylesheet' type='text/css'>
+		
+	    <meta name="viewport" content="width=device-width">
+
+	    <meta property="og:title" content="Prototype Factory">
+	    <meta property="og:type" content="website">
+	    <meta property="og:url" content="http://www.tadeaskriz.com/search.json">
+	    <meta property="og:image" content="/img/og_image.gif">
+	    <meta property="og:site_name" content="Prototype Factory">
+	    <meta property="og:description" content="">
+		
+		<meta name="google-site-verification" content="fPCfLO1z_Y-FD6z3B6aqligcYJfE8QNl9UZV2-LLQPA" />
+		<script>
+		  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+		  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+		  ga('create', 'UA-11323784-13', 'tadeaskriz.com');
+		  ga('require', 'linkid', 'linkid.js');
+		  ga('send', 'pageview');
+
+		</script>
+	</head>
+	<body>
+		<script>
+			window.fbAsyncInit = function() {
+				FB.init({
+					appId: '487020328073741',
+					xfbml: true,
+					version: 'v2.0'
+				});
+			};
+
+			(function(d, s, id){
+				var js, fjs = d.getElementsByTagName(s)[0];
+				if (d.getElementById(id)) {return;}
+				js = d.createElement(s); js.id = id;
+				js.src = "//connect.facebook.net/en_US/sdk.js";
+				fjs.parentNode.insertBefore(js, fjs);
+			} (document, 'script', 'facebook-jssdk'));
+	    </script>
+		<div id="container">
+			<header>
+    <a id="logo" href="http://www.tadeaskriz.com"><h1>Prototype Factory</h1></a>
+    <form id="search" action="/search" method="get">
+        <input type="text" id="term" name="term">
+    </form>
+</header>
+
+<script id="search-results-template" type="text/mustache">
+    
+        <article>
+            
+        </article>
+    
+</script>
+
+			<article id="article-">
+				<h2></h2>
+				<div class="breadcrumbs">
+					<span id="arrow"></span>
+					<a href="http://www.tadeaskriz.com">other articles</a>
+					<span class="date"></span>
+				</div>
+				<section>{
+	"entries": [
+		
+			
+			{
+				"title": "Music Stopper release",
+				"url": "/2014/07/21/music-stopper-released/",
+				"date": "2014-07-21 00:00:00 +0200",
+				"categories": [],
+				"body": "Another simple yet useful application from Brightify is on the Play Store. It does what the name says— it stops your music after a specified amount of time. This is especially useful when you like to lose yourself in your favorite songs, but at the same time you don’t want to play the music any longer than needed.\n\nCredits\n\n  Code: Filip Dolník\n  Design: Jakub Šlancar\n\n\n\n\n\n\n"
+			}
+		
+			,
+			{
+				"title": "Actual generic parameters of a Class<?> in runtime",
+				"url": "/2014/04/11/actual-generic-parameters-of-a-class-in-runtime/",
+				"date": "2014-04-11 00:00:00 +0200",
+				"categories": [],
+				"body": "Yesterday I was working on dynamic mapping of marshallers to their marshalled type. The way I’ve done it was having an interface Marshaller with generic parameter &lt;T&gt;. Then I was using Reflections to get all classes that implements this interface. Then I needed to get the actual type of &lt;T&gt; which is a problem if there is for example an abstract class that is the base for all marshallers. So if you have the following setup, it’s not as easy as just calling `ParameterizedType#getActualTypeArguments()”.\n\ninterface Marshaller&lt;T&gt; { \n\t... \n}\n\nabstract class AbstractMarshaller&lt;T&gt; implements Marshaller&lt;T&gt; {\n\t...\n}\n\nclass BooleanMarshaller extends AbstractMarshaller&lt;Boolean&gt; {\n\t...\n}\n\n\nSo I have written the following method that resolves actual types of all generic parameters of a given class.\n\npublic Map&lt;TypeVariable, Type&gt; params(Class&lt;?&gt; targetClass, Class&lt;?&gt; cls, ParameterizedType type) {\n    TypeVariable[] parameters = cls.getTypeParameters();\n    Type[] actualParameters;\n    if (type != null) {\n        actualParameters = type.getActualTypeArguments();\n    } else {\n        actualParameters = parameters;\n    }\n\n    Map&lt;TypeVariable, Type&gt; map = new HashMap&lt;TypeVariable, Type&gt;();\n    for (int i = 0; i &lt; parameters.length; i++) {\n        map.put(parameters[i], actualParameters[i]);\n    }\n    if (cls == targetClass) {\n        return map;\n    }\n\n    List&lt;Type&gt; genericParents = new ArrayList&lt;Type&gt;();\n\n    Type[] genericInterfaces = cls.getGenericInterfaces();\n    Type genericSuperclass = cls.getGenericSuperclass();\n\n    Collections.addAll(genericParents, genericInterfaces);\n    genericParents.add(genericSuperclass);\n\n    for (Type genericInterface : genericParents) {\n        ParameterizedType parameterizedInterface = (ParameterizedType) genericInterface;\n\n        Map&lt;TypeVariable, Type&gt; genericInterfaceMap = params(targetClass,\n                                                             (Class) parameterizedInterface.getRawType(),\n                                                             parameterizedInterface);\n        if (genericInterfaceMap != null) {\n            for (TypeVariable key : genericInterfaceMap.keySet()) {\n                Type value = genericInterfaceMap.get(key);\n                if (value instanceof TypeVariable) {\n                    genericInterfaceMap.put(key, map.get(value));\n                }\n            }\n            return genericInterfaceMap;\n        }\n    }\n    return null;\n}\n\n\nAnd you’d use it like this:\n\nMap&lt;TypeVariable, Type&gt; params = genericParameters(Marshaller2.class, BooleanMarshaller.class, null);\n\n\nAnd the params map would have exactly one entry, (TypeVariable) \"T\" =&gt; (Class) Boolean.\n\nI wrote this because I was unable to find the solution anywhere else, so hopefully this will help someone in the future.\n\nPS: This method needs some refactoring for sure and I will do it in the following days.\n"
+			}
+		
+			,
+			{
+				"title": "DevConf 2014",
+				"url": "/2014/03/31/devconf-2014/",
+				"date": "2014-03-31 00:00:00 +0200",
+				"categories": [],
+				"body": "It’s been a while since I had a presentation on DevConf 2014 in Brno and so I decided it’s finally time to write something about it. The event was three days long and even though I’ve been there only the first day, I’ve really enjoyed it. I’ve attended two talks and one workshop. The first talk I’ve attended has been on web application development using Web Components by Lukas Fryc. Although I’m not really a web developer anymore and I went there only to broaden my knowledge, I liked the talk and didn’t really get much confused by all the code in the slides. After that I went to Thermostat workshop by Severin Gehwolf, again mostly just out of curiosity. Unfortunately I didn’t get to find a free spot by a computer, so I was only listening. The last talk was on REST APIs and how to report errors in processing requests by Ivan Necas. All those talks I’ve attended were great and I just wish I had the time to attend more talks on Saturday and Sunday.\n\nMy talk\nI talked about the AeroGear library and you can find the whole talk on YouTube and slides on Google Drive. It was my first talk in English and even though I believe I have a lot to work on (speaking of my presentation skills), I’ve been told that people liked it. However there was one major fail and that was the live coding demo. Being under stress, I overlooked a name of a method I was implementing and because of that the application was not showing any data. I wish I had looked into the code a bit more, but I didn’t want to waste time and people’s attention on debugging the code. The other demo’s code is available on GitHub. It’s a very simple TODO list application for both Android and iOS. It doesn’t support any kind of authentication and all tasks are synchronized across all connected devices.\n\nWeb backend: https://github.com/TadeasKriz/devconf2014-web  \nAndroid application: https://github.com/TadeasKriz/devconf2014-android  \niOS application: https://github.com/TadeasKriz/devconf2014-ios  \n\n"
+			}
+		
+			,
+			{
+				"title": "AutoAmplifier release",
+				"url": "/2014/03/27/auto-amplifier-released/",
+				"date": "2014-03-27 00:00:00 +0100",
+				"categories": [],
+				"body": "We have just released a small application called AutoAmplifier. Its main goal is to adjust your music volume based on surrounding noises. That way when you, for example, decide to leave a library and get on a train, you won’t need to reach out for your phone to increase the volume, AutoAmplifier will do that for you.\n\nCredits\n\n  Initial idea and coding: Matouš Hýbl\n  Design: Jakub Šlancar\n\n\n\n\n\n\n"
+			}
+		
+			,
+			{
+				"title": "First alpha of Torch released!",
+				"url": "/2013/12/06/first-alpha-of-torch-released/",
+				"date": "2013-12-06 00:00:00 +0100",
+				"categories": [],
+				"body": "I’m very proud to announce, that our Android ORM library Torch has just reached the state, in which I consider it featureful enough to be released. In the upcoming weeks and possibly months, I’ll be focusing on polishing the API, extending SPI, implementing missing features, like relations between entities or better column filters, but mostly on documenting the library.\n\nFor more information head to https://github.com/brightify/torch to learn more. The wiki on the github contains some basic information on how to work with entities. I’ll add how to setup the library in your project very soon.\n"
+			}
+		
+			,
+			{
+				"title": "Great expectations lead to great disappointment",
+				"url": "/2013/10/25/great-expectations-lead-to-great-disappointment/",
+				"date": "2013-10-25 00:00:00 +0200",
+				"categories": [],
+				"body": "That’s right, I had great expectations, which were not fulfilled and I’m not impressed. I’m talking about the latest update of Apple’s operating system OS X.\n\nWhat I expected\n\nI’ve been using Mountain Lion for a few months now with two displays, one built-in and one external. The external one is Full HD, so it has a bit more pixels than the MacBook’s display. It was usable, when I didn’t need to disconnect the secondary monitor, to bring the laptop with me, or have applications in fullscreen mode. The problem with the fullscreen was simple, the OS X behaved like each of its spaces was simply one area, spanning through both displays, so when you made one application fullscreen, the other display was just grey (with that fancy pattern). What a waste of space. Then there’s the other problem, disconnecting the secondary display, resulted moving all the windows from it to the Mac’s display, without any resizing. Messy as hell.\n\nFor Mavericks, Apple promised there will be a lot made for better multi-display support. That gave me a hope, that it might finally take each space separately, and not try to merge it when I disconnect the second display. Also, it’d be just great if it tried to resize the windows in correct ratio.\n\nThe other thing I was looking for, is tabs in Finder. It sounds silly, when you say\n\n\n  “For a next iteration of Apple’s operation system, the second most expected thing are tabs in the file explorer.”\n\n\nbut I really miss them even on Windows.\n\nWhat has been delivered\n\nLet’s start with the minor things. \n\nMaps\n\nLooks great, feels great, but I’m still about to be using Google Maps in browser. Also I think that this should be in App Store and not preinstalled.\n\niBooks\n\nAnother app that’s useless for me and I’d rather download it from App Store if I wanted.\n\nTags in Finder\n\nI might use those, but right now I didn’t get to even try them. I’ll see soon enough if there’s any use for them for me.\n\nTabs in Finder\n\nI’m excited about these, as it’s a great step toward more effective work with files on Mac.\n\nNotifications on lock screen\n\nI like it, as my password is rather long, so I got the time to check up with what’s waiting for me when I log in. For people with shorter password, I’m not sure there is any use for this feature.\n\nMulti-display support\n\nHere we go, the feature I got disappointed about the most. Of course they improved it, it’s easy to improve nothing. But to me, it’s half-baked shit. I mean it! There is no configuration, there is no way to disable some things I don’t like, nothing. I know that Apple does decide the majority of things for the users, so we don’t have to. But be honest, how many simple users are using multiple screens? So wouldn’t it be a good idea, to let us decide, how we like it? For example, the dock. There’s no way to set it to appear only on one display and never on the second one! Then there are fullscreen apps, which works great and I like how Apple made these. The same applies for other spaces, as it finally appears, that they are separate and you can even have different count of spaces on each display. This leads me to the secondary display disconnection. That’s just terrible and you won’t like what’ll happen. When you disconnect the other screen, it’ll try to merge your spaces and move windows to your primary display. No horizontal resizing is done so the windows are wider than my screen. This is just ugly and has no sense. Alright, if they didn’t want to resize the windows, they should have made it the way, that it would just move whole spaces. In that case, if I had 3 spaces on primary display and two spaces on secondary, I’d have five spaces after the disconnection. Apps in fullscreen mode works that way, they just move to the primary display. That’s brilliant and Apple should have gone this way with spaces as well.\n\nConclusion\n\nEven though I’m really disappointed by the Mavericks, I’m still grateful even for the small changes. Maybe that’s only because it was in a form of a free update, because if I had to pay for this, man I’d be pissed as hell.\n"
+			}
+		
+			,
+			{
+				"title": "The new Torch!",
+				"url": "/2013/10/17/the-new-torch/",
+				"date": "2013-10-17 00:00:00 +0200",
+				"categories": [],
+				"body": "When I thought that Torch is almost ready for our internal projects to use, a new idea came from my coworker Karel Piwko. Basically, right now, Torch was working with reflection to store and load entities. The problem with reflection is its performance overhead, causing that Torch was slower ten times than using just plain SQL commands and create the models yourself. But not anymore! I’ve started working on annotation processor, that will go through all your entities, and generate metadata, which will be static and thus significantly faster.\n\nChanges to the API\n\nThat’s what great about this, there won’t be any! It will behave completely the same, except it’ll be an order of magnitude faster! I’ve been able to design the annotation processor’s output that way it can be easily used by Torch with the current API.\n\nSupport by IDE’s, build tools\n\nAnything that can supply javac an annotation processor parameter is supported. Right now I know it does work with Maven and IntelliJ IDEA.\n\n"
+			}
+		
+			,
+			{
+				"title": "The first usable version of Torch",
+				"url": "/2013/10/14/the-first-usable-version-of-torch/",
+				"date": "2013-10-14 00:00:00 +0200",
+				"categories": [],
+				"body": "This weekend was hectic, but I’ve finally managed to get Torch into usable form. It doesn’t have a way to delete entities from database and there is no documentation yet. Also there are just a few tests written, but more will come in the upcoming two weeks.\n\nCurrent status\n\nLoader and Saver API should be fully usable (except async operations). You can save any entity and also load them back. Loader API allows you to filter, order and limit results. The API is completely fluent and immutable, guiding you through the query creation. Each step implements Iterable interface, so you can use it in foreach loops. That way the data will get loaded when they’re needed and not all at once. Also you can call list() method, to get all the results in one List.\n\nWhat’s next\n\nI need to implement the async API. It’ll work the way that each callback is run on UI thread, so you don’t have to worry about direct modification of your UI. Then I’ll implement the Deleter API, so there’s an easy way to delete entities. Last but not least, tests. I should write a lot of tests to cover all the APIs to ensure proper  behavior.\n\nChange of alpha release date\n\nMore projects came into scope, which has higher priority than releasing alpha version of Torch. Because of that, I have to shift the alpha release date. If everything goes well, the alpha should be out at the end of November.\n\nWhere to get latest version\n\nLatest version can be found here. Until further notice, this is always the bleeding edge and it’s not considered stable!\n\n"
+			}
+		
+			,
+			{
+				"title": "Idea for another opensource library",
+				"url": "/2013/10/13/idea-for-another-opensource-library/",
+				"date": "2013-10-13 00:00:00 +0200",
+				"categories": [],
+				"body": "While I’m working on the Torch, an idea for another library came up in my mind. Codenamed Neteasy will be a fresh networking library, based on solid and easy to use API. It’s gonna be based on our internal networking library written for real-time games, but with polished API.\n"
+			}
+		
+			,
+			{
+				"title": "My first opensource project",
+				"url": "/2013/10/12/my-first-opensource-project/",
+				"date": "2013-10-12 00:00:00 +0200",
+				"categories": [],
+				"body": "I’m currently working on my first opensource project, with codename torch. It’s an Android ORM framework, which is built to have similar API to objectify. I’ve never worked on anything opensourced until I got a job in Red Hat, but I think I should change that radically and contribute to the community. That’s why there will be more opensource libraries from Brightify, so keep tuned for more.\n\nWhat’s an ORM\n\nORM means Object-relational mapping and it’s a great way to easily persist data in your application. You don’t need to write your own code to handle database connection, to create tables and to load/store the data. It sounds great right? Well, there is one drawback and that’s performance. I didn’t measured the performance of torch yet, but from what I know about reflection, it might be an order of magnitude. However that mainly applies to performance sensitive applications and thus it depends on the scenario. If you’re writing application, in which handling the database would increase the development time a lot, you should try using an ORM framework. Also there is one big advantage and that’s stability. When you write your own database handling code, it might contain bugs, which might be easily overlooked. Don’t get me wrong, I’m not saying that ORM frameworks are completely bug-free, but it’s less likely if you’ll pick a stable release. \n\nAnother ORM? Why?\n\nI’ve tried many Android ORMs, but every single one has something I didn’t like. Some had the requirement to extend some abstract classes, some seemed too heavyweight for what I needed and none of them was quite like objectify, which I’ve used on Google AppEngine and totally fell in love with. So I’ve decided to write my own ORM which would have similar API as objectify and that’s how torch project was born.\n\nCurrent status\n\nRight now, there are many features missing and it’s definitely not usable yet. But I’m working hard to release first alpha preview very soon. By soon, I mean the end of this month (October 2013). The first alpha preview still won’t be ready for production, that’s for sure. And it won’t become a beta until I’ll use it in at least two project myself. After I’ll test it in real environment, I’ll be finally able to say that the API won’t change and make it a beta. Then again, it’ll need more testing, possibly from community. There won’t be a stable release until I feel like it’s ready.\n\n"
+			}
+		
+	]
+}</section>
+			</article>
+
+			<footer>
+				<div id="under_article">
+					<div id="social">
+						<script id='fb251t1'>(function(i){var f,s=document.getElementById(i);f=document.createElement('iframe');f.src='//api.flattr.com/button/view/?uid=TadeasKriz&url='+encodeURIComponent(document.URL)+'&title=';f.title='Flattr';f.height=62;f.width=55;f.style.borderWidth=0;s.parentNode.insertBefore(f,s);})('fb251t1');</script>
+						<div class="fb-like" data-href="http://www.tadeaskriz.com/search.json" data-layout="box_count" data-action="like" data-show-faces="false" data-share="false"></div>
+						<div class="g-plusone" data-size="tall" data-href="http://www.tadeaskriz.com/search.json"></div>
+						<a href="https://twitter.com/share" class="twitter-share-button" data-related="TadeasKriz" data-count="vertical">Tweet</a>
+						<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+					</div>
+					<div id="tags"></div>
+				</div>
+				<div id="about">
+					<div id="avatar_wrapper">
+			    		<div id="avatar_crisp_wrapper" style="background-image:url(https://lh5.googleusercontent.com/-Xp5jqzj37eU/UzCuMGYCEmI/AAAAAAAAMF0/uF4e1pd7cl8/w783-h786-no/10003653_840041109355960_344531941_o.jpg)"></div>
+		    			<div id="because_CSS">
+		        			<img src="https://lh5.googleusercontent.com/-Xp5jqzj37eU/UzCuMGYCEmI/AAAAAAAAMF0/uF4e1pd7cl8/w783-h786-no/10003653_840041109355960_344531941_o.jpg" id="avatar_blur" />
+		    			</div>
+					</div>
+					<div id="aboutMeTexts">
+						<h4>Tadeas Kriz</h4>
+						<p>Is passionate developer who just recently began to invest his time into opensource projects, when he joined Red Hat in June 2013. He also created an opensource library <a href="http://github.com/brightify/torch">Torch</a>.
+</p>
+					</div>
+				</div>
+				<script src="https://apis.google.com/js/plusone.js"></script>
+				<div class="g-comments" data-href="http://www.tadeaskriz.com/search.json" data-width="844" data-first_party_property="BLOGGER" data-view_type="FILTERED_POSTMOD"></div>
+			</footer>
+		</div>
+		<script type="text/javascript">
+			(function() {
+				var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+				po.src = 'https://apis.google.com/js/platform.js';
+				var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+			})();
+		</script>
+	</body>
+</html>

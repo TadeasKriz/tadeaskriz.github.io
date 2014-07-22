@@ -1,0 +1,339 @@
+<!doctype html>
+<html lang="en">
+    	<head>
+		<meta charset="utf-8">
+		<title>Search - Prototype Factory</title>
+
+		<meta name="description" content="">
+		<link href='http://fonts.googleapis.com/css?family=Lato:300,400,700' rel='stylesheet' type='text/css'>
+		<link rel="stylesheet" href="/css/styles.css">
+		<link rel="stylesheet" href="/styles/default.css">
+
+		<link rel="shortcut icon" href="/img/favicon.png">
+
+		<!--[if lt IE 9]>
+			<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+		<![endif]-->
+
+		<script>var base = '';</script>
+		<script src="/js/jquery.js"></script>
+		<link href='http://fonts.googleapis.com/css?family=Source+Code+Pro:400,600' rel='stylesheet' type='text/css'>
+		
+	    <meta name="viewport" content="width=device-width">
+
+	    <meta property="og:title" content="Prototype Factory">
+	    <meta property="og:type" content="website">
+	    <meta property="og:url" content="http://www.tadeaskriz.com/search/">
+	    <meta property="og:image" content="/img/og_image.gif">
+	    <meta property="og:site_name" content="Prototype Factory">
+	    <meta property="og:description" content="">
+		
+		<meta name="google-site-verification" content="fPCfLO1z_Y-FD6z3B6aqligcYJfE8QNl9UZV2-LLQPA" />
+		<script>
+		  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+		  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+		  ga('create', 'UA-11323784-13', 'tadeaskriz.com');
+		  ga('require', 'linkid', 'linkid.js');
+		  ga('send', 'pageview');
+
+		</script>
+	</head>
+    <body>
+        <div id="container">
+        <header>
+    <a id="logo" href="http://www.tadeaskriz.com"><h1>Prototype Factory</h1></a>
+    <form id="search" action="/search" method="get">
+        <input type="text" id="term" name="term">
+    </form>
+</header>
+
+<script id="search-results-template" type="text/mustache">
+    
+        <article>
+            
+        </article>
+    
+</script>
+
+        <script>
+	function $_GET(q,s) {
+		s = (s) ? s : window.location.search;
+		var re = new RegExp('&amp;'+q+'=([^&amp;]*)','i');
+		return (s=s.replace(/^\?/,'&amp;').match(re)) ?s=s[1] :s='';
+	}
+	var term = $_GET("term");
+	term = term.toLowerCase();
+</script>
+<h1 class="wrap" id="term_title"></h1>
+
+<script>
+	$("#term_title").html("You searched for &ldquo;" + term + "&rdquo;.");
+	$("#term").val(term);
+	var data = Array();
+</script>
+
+<div id="load_data">
+	<div>Music Stopper release</div>
+	<div>21. 07. 2014</div>
+	<div>TadeasKriz</div>
+	<div><p>Another simple yet useful application from <a href="http://brightify.org">Brightify</a> is on the Play Store. It does what the name says— it stops your music after a specified amount of time. This is especially useful when you like to lose yourself in your favorite songs, but at the same time you don’t want to play the music any longer than needed.</p>
+
+</div>
+	<div>/2014/07/21/music-stopper-released/</div>
+	<div></div>
+</div>
+<script>
+	var divs = $("#load_data").children();
+	var array = Array();
+	array.push($(divs[0]).html().toLowerCase());
+	array.push($(divs[0]).html());
+	array.push($(divs[1]).html());
+	array.push($(divs[2]).html());
+	array.push($(divs[3]).html());
+	array.push($(divs[4]).html());
+	array.push($(divs[5]).html());
+	data.push(array);
+	$("#load_data").remove();
+</script>
+
+<div id="load_data">
+	<div>Actual generic parameters of a Class<?> in runtime</div>
+	<div>11. 04. 2014</div>
+	<div>TadeasKriz</div>
+	<div><p>Yesterday I was working on dynamic mapping of marshallers to their marshalled type. The way I’ve done it was having an interface <code>Marshaller</code> with generic parameter <code>&lt;T&gt;</code>. Then I was using <strong>Reflections</strong> to get all classes that implements this interface. Then I needed to get the actual type of <code>&lt;T&gt;</code> which is a problem if there is for example an abstract class that is the base for all marshallers. So if you have the following setup, it’s not as easy as just calling `ParameterizedType#getActualTypeArguments()”.</p>
+
+</div>
+	<div>/2014/04/11/actual-generic-parameters-of-a-class-in-runtime/</div>
+	<div></div>
+</div>
+<script>
+	var divs = $("#load_data").children();
+	var array = Array();
+	array.push($(divs[0]).html().toLowerCase());
+	array.push($(divs[0]).html());
+	array.push($(divs[1]).html());
+	array.push($(divs[2]).html());
+	array.push($(divs[3]).html());
+	array.push($(divs[4]).html());
+	array.push($(divs[5]).html());
+	data.push(array);
+	$("#load_data").remove();
+</script>
+
+<div id="load_data">
+	<div>DevConf 2014</div>
+	<div>31. 03. 2014</div>
+	<div>TadeasKriz</div>
+	<div><p>It’s been a while since I had a presentation on DevConf 2014 in Brno and so I decided it’s finally time to write something about it. The event was three days long and even though I’ve been there only the first day, I’ve really enjoyed it. I’ve attended two talks and one workshop. The first talk I’ve attended has been on web application development using Web Components by Lukas Fryc. Although I’m not really a web developer anymore and I went there only to broaden my knowledge, I liked the talk and didn’t really get much confused by all the code in the slides. After that I went to Thermostat workshop by Severin Gehwolf, again mostly just out of curiosity. Unfortunately I didn’t get to find a free spot by a computer, so I was only listening. The last talk was on REST APIs and how to report errors in processing requests by Ivan Necas. All those talks I’ve attended were great and I just wish I had the time to attend more talks on Saturday and Sunday.</p>
+
+</div>
+	<div>/2014/03/31/devconf-2014/</div>
+	<div></div>
+</div>
+<script>
+	var divs = $("#load_data").children();
+	var array = Array();
+	array.push($(divs[0]).html().toLowerCase());
+	array.push($(divs[0]).html());
+	array.push($(divs[1]).html());
+	array.push($(divs[2]).html());
+	array.push($(divs[3]).html());
+	array.push($(divs[4]).html());
+	array.push($(divs[5]).html());
+	data.push(array);
+	$("#load_data").remove();
+</script>
+
+<div id="load_data">
+	<div>AutoAmplifier release</div>
+	<div>27. 03. 2014</div>
+	<div>TadeasKriz</div>
+	<div><p>We have just released a small application called <strong>AutoAmplifier</strong>. Its main goal is to adjust your music volume based on surrounding noises. That way when you, for example, decide to leave a library and get on a train, you won’t need to reach out for your phone to increase the volume, <strong>AutoAmplifier</strong> will do that for you.</p>
+
+</div>
+	<div>/2014/03/27/auto-amplifier-released/</div>
+	<div></div>
+</div>
+<script>
+	var divs = $("#load_data").children();
+	var array = Array();
+	array.push($(divs[0]).html().toLowerCase());
+	array.push($(divs[0]).html());
+	array.push($(divs[1]).html());
+	array.push($(divs[2]).html());
+	array.push($(divs[3]).html());
+	array.push($(divs[4]).html());
+	array.push($(divs[5]).html());
+	data.push(array);
+	$("#load_data").remove();
+</script>
+
+<div id="load_data">
+	<div>First alpha of Torch released!</div>
+	<div>06. 12. 2013</div>
+	<div>TadeasKriz</div>
+	<div><p>I’m very proud to announce, that our Android ORM library <strong>Torch</strong> has just reached the state, in which I consider it featureful enough to be released. In the upcoming weeks and possibly months, I’ll be focusing on polishing the API, extending SPI, implementing missing features, like relations between entities or better column filters, but mostly on documenting the library.</p>
+
+</div>
+	<div>/2013/12/06/first-alpha-of-torch-released/</div>
+	<div></div>
+</div>
+<script>
+	var divs = $("#load_data").children();
+	var array = Array();
+	array.push($(divs[0]).html().toLowerCase());
+	array.push($(divs[0]).html());
+	array.push($(divs[1]).html());
+	array.push($(divs[2]).html());
+	array.push($(divs[3]).html());
+	array.push($(divs[4]).html());
+	array.push($(divs[5]).html());
+	data.push(array);
+	$("#load_data").remove();
+</script>
+
+<div id="load_data">
+	<div>Great expectations lead to great disappointment</div>
+	<div>25. 10. 2013</div>
+	<div>TadeasKriz</div>
+	<div><p>That’s right, I had great expectations, which were <strong>not fulfilled</strong> and I’m <strong>not impressed</strong>. I’m talking about the latest update of <strong>Apple</strong>’s operating system <strong>OS X</strong>.</p>
+
+</div>
+	<div>/2013/10/25/great-expectations-lead-to-great-disappointment/</div>
+	<div></div>
+</div>
+<script>
+	var divs = $("#load_data").children();
+	var array = Array();
+	array.push($(divs[0]).html().toLowerCase());
+	array.push($(divs[0]).html());
+	array.push($(divs[1]).html());
+	array.push($(divs[2]).html());
+	array.push($(divs[3]).html());
+	array.push($(divs[4]).html());
+	array.push($(divs[5]).html());
+	data.push(array);
+	$("#load_data").remove();
+</script>
+
+<div id="load_data">
+	<div>The new Torch!</div>
+	<div>17. 10. 2013</div>
+	<div>TadeasKriz</div>
+	<div><p>When I thought that <strong>Torch</strong> is almost ready for our internal projects to use, a new idea came from my coworker <a href="https://plus.google.com/u/0/112976143100224772101"><strong>Karel Piwko</strong></a>. Basically, right now, <strong>Torch</strong> was working with reflection to store and load entities. The problem with reflection is its performance overhead, causing that <strong>Torch</strong> was slower ten times than using just plain SQL commands and create the models yourself. But not anymore! I’ve started working on <strong>annotation processor</strong>, that will go through all your entities, and generate metadata, which will be static and thus significantly faster.</p>
+
+</div>
+	<div>/2013/10/17/the-new-torch/</div>
+	<div></div>
+</div>
+<script>
+	var divs = $("#load_data").children();
+	var array = Array();
+	array.push($(divs[0]).html().toLowerCase());
+	array.push($(divs[0]).html());
+	array.push($(divs[1]).html());
+	array.push($(divs[2]).html());
+	array.push($(divs[3]).html());
+	array.push($(divs[4]).html());
+	array.push($(divs[5]).html());
+	data.push(array);
+	$("#load_data").remove();
+</script>
+
+<div id="load_data">
+	<div>The first usable version of Torch</div>
+	<div>14. 10. 2013</div>
+	<div>TadeasKriz</div>
+	<div><p>This weekend was hectic, but I’ve finally managed to get <a href="https://github.com/brightify/torch/tree/develop"><strong>Torch</strong></a> into usable form. It doesn’t have a way to delete entities from database and there is no documentation yet. Also there are just a few tests written, but more will come in the upcoming two weeks.</p>
+
+</div>
+	<div>/2013/10/14/the-first-usable-version-of-torch/</div>
+	<div></div>
+</div>
+<script>
+	var divs = $("#load_data").children();
+	var array = Array();
+	array.push($(divs[0]).html().toLowerCase());
+	array.push($(divs[0]).html());
+	array.push($(divs[1]).html());
+	array.push($(divs[2]).html());
+	array.push($(divs[3]).html());
+	array.push($(divs[4]).html());
+	array.push($(divs[5]).html());
+	data.push(array);
+	$("#load_data").remove();
+</script>
+
+<div id="load_data">
+	<div>Idea for another opensource library</div>
+	<div>13. 10. 2013</div>
+	<div>TadeasKriz</div>
+	<div><p>While I’m working on the <strong>Torch</strong>, an idea for another library came up in my mind. Codenamed <strong>Neteasy</strong> will be a fresh networking library, based on solid and easy to use API. It’s gonna be based on our internal networking library written for real-time games, but with polished API.</p>
+
+</div>
+	<div>/2013/10/13/idea-for-another-opensource-library/</div>
+	<div></div>
+</div>
+<script>
+	var divs = $("#load_data").children();
+	var array = Array();
+	array.push($(divs[0]).html().toLowerCase());
+	array.push($(divs[0]).html());
+	array.push($(divs[1]).html());
+	array.push($(divs[2]).html());
+	array.push($(divs[3]).html());
+	array.push($(divs[4]).html());
+	array.push($(divs[5]).html());
+	data.push(array);
+	$("#load_data").remove();
+</script>
+
+<div id="load_data">
+	<div>My first opensource project</div>
+	<div>12. 10. 2013</div>
+	<div>TadeasKriz</div>
+	<div><p>I’m currently working on my first opensource project, with codename <a href="http://github.com/brightify/torch"><strong>torch</strong></a>. It’s an Android ORM framework, which is built to have similar API to <a href="https://code.google.com/p/objectify-appengine/"><strong>objectify</strong></a>. I’ve never worked on anything opensourced until I got a job in Red Hat, but I think I should change that radically and contribute to the community. That’s why there will be more opensource libraries from <a href="http://brigtify.org">Brightify</a>, so keep tuned for more.</p>
+
+</div>
+	<div>/2013/10/12/my-first-opensource-project/</div>
+	<div></div>
+</div>
+<script>
+	var divs = $("#load_data").children();
+	var array = Array();
+	array.push($(divs[0]).html().toLowerCase());
+	array.push($(divs[0]).html());
+	array.push($(divs[1]).html());
+	array.push($(divs[2]).html());
+	array.push($(divs[3]).html());
+	array.push($(divs[4]).html());
+	array.push($(divs[5]).html());
+	data.push(array);
+	$("#load_data").remove();
+</script>
+
+<script>
+	for (var i = 0; i < data.length; i++) {
+		window.alert(data[i][3]);
+		var array = data[i];
+		if (array[0].indexOf(term) > -1) {
+			document.getElementById("container").innerHTML = document.getElementById("container").innerHTML + 
+			'<div class="articleBox">' + 
+				'<a href="' + array[5] + '" title="' + array[1] + '" class="headline"><h3>' + array[1] + '</h3></a>' + 
+				'<div class="decriptionBox">' + 
+					'<div class="inlineBox">' +
+						'<a href="' + array[6] + '" class="authorName">' + array[3] + '</a>' +
+						'<span class="date">' + array[2] + '</span>' +
+					'</div>' + 
+					'<p class="descriptionText">' + array[4] + '</p>' +
+				'</div>' +
+			'</div>';
+		}
+	}
+</script>
+        </div>
+    </body>
+</html>

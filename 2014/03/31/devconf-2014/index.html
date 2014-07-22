@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="en">
+		<head>
+		<meta charset="utf-8">
+		<title>DevConf 2014 - Prototype Factory</title>
+
+		<meta name="description" content="">
+		<link href='http://fonts.googleapis.com/css?family=Lato:300,400,700' rel='stylesheet' type='text/css'>
+		<link rel="stylesheet" href="/css/styles.css">
+		<link rel="stylesheet" href="/styles/default.css">
+
+		<link rel="shortcut icon" href="/img/favicon.png">
+
+		<!--[if lt IE 9]>
+			<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+		<![endif]-->
+
+		<script>var base = '';</script>
+		<script src="/js/jquery.js"></script>
+		<link href='http://fonts.googleapis.com/css?family=Source+Code+Pro:400,600' rel='stylesheet' type='text/css'>
+		
+	    <meta name="viewport" content="width=device-width">
+
+	    <meta property="og:title" content="Prototype Factory">
+	    <meta property="og:type" content="website">
+	    <meta property="og:url" content="http://www.tadeaskriz.com/2014/03/31/devconf-2014/">
+	    <meta property="og:image" content="/img/og_image.gif">
+	    <meta property="og:site_name" content="Prototype Factory">
+	    <meta property="og:description" content="">
+		
+		<meta name="google-site-verification" content="fPCfLO1z_Y-FD6z3B6aqligcYJfE8QNl9UZV2-LLQPA" />
+		<script>
+		  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+		  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+		  ga('create', 'UA-11323784-13', 'tadeaskriz.com');
+		  ga('require', 'linkid', 'linkid.js');
+		  ga('send', 'pageview');
+
+		</script>
+	</head>
+	<body>
+		<script>
+			window.fbAsyncInit = function() {
+				FB.init({
+					appId: '487020328073741',
+					xfbml: true,
+					version: 'v2.0'
+				});
+			};
+
+			(function(d, s, id){
+				var js, fjs = d.getElementsByTagName(s)[0];
+				if (d.getElementById(id)) {return;}
+				js = d.createElement(s); js.id = id;
+				js.src = "//connect.facebook.net/en_US/sdk.js";
+				fjs.parentNode.insertBefore(js, fjs);
+			} (document, 'script', 'facebook-jssdk'));
+	    </script>
+		<div id="container">
+			<header>
+    <a id="logo" href="http://www.tadeaskriz.com"><h1>Prototype Factory</h1></a>
+    <form id="search" action="/search" method="get">
+        <input type="text" id="term" name="term">
+    </form>
+</header>
+
+<script id="search-results-template" type="text/mustache">
+    
+        <article>
+            
+        </article>
+    
+</script>
+
+			<article id="article-/2014/03/31/devconf-2014">
+				<h2>DevConf 2014</h2>
+				<div class="breadcrumbs">
+					<span id="arrow"></span>
+					<a href="http://www.tadeaskriz.com">other articles</a>
+					<span class="date">March 31, 2014</span>
+				</div>
+				<section><p>It’s been a while since I had a presentation on DevConf 2014 in Brno and so I decided it’s finally time to write something about it. The event was three days long and even though I’ve been there only the first day, I’ve really enjoyed it. I’ve attended two talks and one workshop. The first talk I’ve attended has been on web application development using Web Components by Lukas Fryc. Although I’m not really a web developer anymore and I went there only to broaden my knowledge, I liked the talk and didn’t really get much confused by all the code in the slides. After that I went to Thermostat workshop by Severin Gehwolf, again mostly just out of curiosity. Unfortunately I didn’t get to find a free spot by a computer, so I was only listening. The last talk was on REST APIs and how to report errors in processing requests by Ivan Necas. All those talks I’ve attended were great and I just wish I had the time to attend more talks on Saturday and Sunday.</p>
+
+<h3 id="my-talk">My talk</h3>
+<p>I talked about the <a href="http://aerogear.org">AeroGear</a> library and you can find the whole talk on <a href="https://www.youtube.com/watch?v=pW88KEdOMTA">YouTube</a> and slides on <a href="https://docs.google.com/presentation/d/12fG9ZiVk-2kSz6Fuop16S0KyvI7hkOQigO30rj3KoLU/edit?usp=sharing">Google Drive</a>. It was my first talk in English and even though I believe I have a lot to work on (speaking of my presentation skills), I’ve been told that people liked it. However there was one major fail and that was the live coding demo. Being under stress, I overlooked a name of a method I was implementing and because of that the application was not showing any data. I wish I had looked into the code a bit more, but I didn’t want to waste time and people’s attention on debugging the code. The other demo’s code is available on GitHub. It’s a very simple TODO list application for both Android and iOS. It doesn’t support any kind of authentication and all tasks are synchronized across all connected devices.</p>
+
+<p>Web backend: <a href="https://github.com/TadeasKriz/devconf2014-web">https://github.com/TadeasKriz/devconf2014-web</a>  <br />
+Android application: <a href="https://github.com/TadeasKriz/devconf2014-android">https://github.com/TadeasKriz/devconf2014-android</a>  <br />
+iOS application: <a href="https://github.com/TadeasKriz/devconf2014-ios">https://github.com/TadeasKriz/devconf2014-ios</a>  </p>
+
+</section>
+			</article>
+
+			<footer>
+				<div id="under_article">
+					<div id="social">
+						<script id='fb251t1'>(function(i){var f,s=document.getElementById(i);f=document.createElement('iframe');f.src='//api.flattr.com/button/view/?uid=TadeasKriz&url='+encodeURIComponent(document.URL)+'&title=DevConf 2014';f.title='Flattr';f.height=62;f.width=55;f.style.borderWidth=0;s.parentNode.insertBefore(f,s);})('fb251t1');</script>
+						<div class="fb-like" data-href="http://www.tadeaskriz.com/2014/03/31/devconf-2014/" data-layout="box_count" data-action="like" data-show-faces="false" data-share="false"></div>
+						<div class="g-plusone" data-size="tall" data-href="http://www.tadeaskriz.com/2014/03/31/devconf-2014/"></div>
+						<a href="https://twitter.com/share" class="twitter-share-button" data-related="TadeasKriz" data-count="vertical">Tweet</a>
+						<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+					</div>
+					<div id="tags"></div>
+				</div>
+				<div id="about">
+					<div id="avatar_wrapper">
+			    		<div id="avatar_crisp_wrapper" style="background-image:url(https://lh5.googleusercontent.com/-Xp5jqzj37eU/UzCuMGYCEmI/AAAAAAAAMF0/uF4e1pd7cl8/w783-h786-no/10003653_840041109355960_344531941_o.jpg)"></div>
+		    			<div id="because_CSS">
+		        			<img src="https://lh5.googleusercontent.com/-Xp5jqzj37eU/UzCuMGYCEmI/AAAAAAAAMF0/uF4e1pd7cl8/w783-h786-no/10003653_840041109355960_344531941_o.jpg" id="avatar_blur" />
+		    			</div>
+					</div>
+					<div id="aboutMeTexts">
+						<h4>Tadeas Kriz</h4>
+						<p>Is passionate developer who just recently began to invest his time into opensource projects, when he joined Red Hat in June 2013. He also created an opensource library <a href="http://github.com/brightify/torch">Torch</a>.
+</p>
+					</div>
+				</div>
+				<script src="https://apis.google.com/js/plusone.js"></script>
+				<div class="g-comments" data-href="http://www.tadeaskriz.com/2014/03/31/devconf-2014/" data-width="844" data-first_party_property="BLOGGER" data-view_type="FILTERED_POSTMOD"></div>
+			</footer>
+		</div>
+		<script type="text/javascript">
+			(function() {
+				var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+				po.src = 'https://apis.google.com/js/platform.js';
+				var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+			})();
+		</script>
+	</body>
+</html>
