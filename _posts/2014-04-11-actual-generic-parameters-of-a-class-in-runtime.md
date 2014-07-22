@@ -2,7 +2,7 @@
 title: Actual generic parameters of a Class<?> in runtime
 ---
 
-Yesterday I was working on dynamic mapping of marshallers to their marshalled type. The way I've done it was having an interface `Marshaller` with generic parameter `<T>`. Then I'm using **Reflections** to get all classes that implements this interface. Then I need to get the actual type ot `<T>`, which is a problem if there is for example an abstract class, that is the base for all marshallers. So if you have the following setup, it's not as easy as just calling `ParameterizedType#getActualTypeArguments()".
+Yesterday I was working on dynamic mapping of marshallers to their marshalled type. The way I've done it was having an interface `Marshaller` with generic parameter `<T>`. Then I was using **Reflections** to get all classes that implements this interface. Then I needed to get the actual type of `<T>` which is a problem if there is for example an abstract class that is the base for all marshallers. So if you have the following setup, it's not as easy as just calling `ParameterizedType#getActualTypeArguments()".
 
 ```java
 interface Marshaller<T> { 
@@ -18,7 +18,7 @@ class BooleanMarshaller extends AbstractMarshaller<Boolean> {
 }
 ```
 
-So I have written the following method, that resolves actual types of all generic parameters of a given class.
+So I have written the following method that resolves actual types of all generic parameters of a given class.
 
 ```java
 public Map<TypeVariable, Type> params(Class<?> targetClass, Class<?> cls, ParameterizedType type) {
@@ -66,7 +66,7 @@ public Map<TypeVariable, Type> params(Class<?> targetClass, Class<?> cls, Parame
 }
 ```
 
-And you'd use it like so:
+And you'd use it like this:
 
 ```java
 Map<TypeVariable, Type> params = genericParameters(Marshaller2.class, BooleanMarshaller.class, null);
@@ -74,7 +74,7 @@ Map<TypeVariable, Type> params = genericParameters(Marshaller2.class, BooleanMar
 
 And the `params` map would have exactly one entry, `(TypeVariable) "T" => (Class) Boolean`.
 
-I wrote this because I was unable to find the solution anywhere, so hopefully this will help someone in the future.
+I wrote this because I was unable to find the solution anywhere else, so hopefully this will help someone in the future.
 
 
-PS: The method needs some refactoring for sure and I will do it in the following days.
+PS: This method needs some refactoring for sure and I will do it in the following days.
