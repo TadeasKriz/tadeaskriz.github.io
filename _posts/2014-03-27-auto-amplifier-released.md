@@ -3,7 +3,7 @@ title: AutoAmplifier release
 image: content/auto-amplifier-released/title_image.jpg
 ---
 
-We just released a small application called **AutoAmplifier**. Its main goal is to adjust your music volume based on surrounding noises. That way when you decide to leave a library and get on a train, you won't need to reach out for your phone to increase the volume, **AutoAmplifier** will do that for you.
+We have just released a small application called **AutoAmplifier**. Its main goal is to adjust your music volume based on surrounding noises. That way when you, for example, decide to leave a library and get on a train, you won't need to reach out for your phone to increase the volume, **AutoAmplifier** will do that for you.
 
 ### Credits
 * Initial idea and coding: [Matouš Hýbl][matous]
