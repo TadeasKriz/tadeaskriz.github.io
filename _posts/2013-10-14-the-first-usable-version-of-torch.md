@@ -1,15 +1,15 @@
 ---
 title: The first usable version of Torch
 ---
-This weekend was hectic, but I've finally managed to get [**Torch**][1] into usable form. It doesn't have a way to delete entities from database and there is no documentation yet. Also there are just a few tests written, but more will come in the upcoming two weeks.
+This weekend was hectic, but I've finally managed to get [**Torch**][1] into usable form. However there is no way to delete entities from database and there is no documentation yet. Also there are just a few tests written, but more will come in the upcoming two weeks.
 
 ## Current status
 
-Loader and Saver API should be fully usable (except async operations). You can save any entity and also load them back. Loader API allows you to filter, order and limit results. The API is completely fluent and immutable, guiding you through the query creation. Each step implements **Iterable** interface, so you can use it in `foreach` loops. That way the data will get loaded when they're needed and not all at once. Also you can call `list()` method, to get all the results in one `List`.
+Loader and Saver API should be fully usable (except async operations). You can save any entity and then also load them back. Loader API allows you to filter, order and limit results. The API is completely fluent and immutable, guiding you through the query creation. Each step implements **Iterable** interface, so you can use it in `foreach` loops. That way the data will get loaded when they're needed and not all at once. Also you can call `list()` method to get all the results in one `List`.
 
 ## What's next
 
-I need to implement the async API. It'll work the way that each callback is run on **UI thread**, so you don't have to worry about direct modification of your UI. Then I'll implement the Deleter API, so there's an easy way to delete entities. Last but not least, tests. I should write a lot of tests to cover all the APIs to ensure proper  behavior.
+I need to implement the async API. It'll work in a way that each callback is run on **UI thread**, so you don't have to worry about direct modification of your UI. Then I'll implement the Deleter API, so there's an easy way to delete entities. Last but not least, tests. I should write a lot of tests to cover all the APIs to ensure proper  behavior.
 
 ## Change of alpha release date
 
